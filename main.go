@@ -5,9 +5,6 @@ import (
 	"golang/cqrs/pkg/command"
 )
 
-// declare event bus var that will be used in the whole package
-
-// create new command
 type contextKey string
 
 func main() {
