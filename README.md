@@ -6,3 +6,4 @@
 * [ ] Commands Implementation
 * [ ] Queries Implementation
 * [ ] Events Implementation
+* [ ] Aggregate Implementation
