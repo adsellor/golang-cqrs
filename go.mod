@@ -1,3 +1,3 @@
-module github/adsellor/golang-cqrs
+module github.com/adsellor/golang-cqrs
 
 go 1.19

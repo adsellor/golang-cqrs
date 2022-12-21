@@ -2,9 +2,10 @@ package main
 
 import (
 	"context"
-	"github/adsellor/golang-cqrs/internal/command"
-	"github/adsellor/golang-cqrs/internal/event"
 	"time"
+
+	"github.com/adsellor/golang-cqrs/internal/command"
+	"github.com/adsellor/golang-cqrs/internal/event"
 )
 
 type contextKey string
