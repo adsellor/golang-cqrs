@@ -2,8 +2,8 @@ package main
 
 import (
 	"context"
-	"golang/cqrs/internal/command"
-	"golang/cqrs/internal/event"
+	"github/adsellor/golang-cqrs/internal/command"
+	"github/adsellor/golang-cqrs/internal/event"
 	"time"
 )
 
