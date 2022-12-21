@@ -4,8 +4,7 @@
 
 ## TODO
 * [x] Naive Commands Implementation
-* [ ] Queries Implementation
+* [x] Naive Queries Implementation
 * [x] Naive Events Implementation
-* [ ] Aggregate Implementation
-* [ ] Shared Context Iplementation
 * [ ] Auto Configure Implementation
+* [ ] Add tests
