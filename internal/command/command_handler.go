@@ -1,17 +1,19 @@
 package command
 
 type CommandHandler struct {
-	Command func()
-	Args    []string
+	CommandID string
+	Command   func()
+	Args      []string
 }
 
 func (ch *CommandHandler) Execute() {
 	ch.Command()
 }
 
-func NewHandler(command func(), args ...string) *CommandHandler {
+func NewHandler(commandId string, command func(), args ...string) *CommandHandler {
 	return &CommandHandler{
-		Command: command,
-		Args:    args,
+		CommandID: commandId,
+		Command:   command,
+		Args:      args,
 	}
 }

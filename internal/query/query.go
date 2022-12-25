@@ -1,13 +1,15 @@
 package query
 
 type Query struct {
-	Query func()
-	Args  []string
+	QueryId string
+	Query   func()
+	Args    []string
 }
 
-func NewQuery(query func(), args ...string) *Query {
+func NewQuery(queryId string, query func(), args ...string) *Query {
 	return &Query{
-		Query: query,
-		Args:  args,
+		QueryId: queryId,
+		Query:   query,
+		Args:    args,
 	}
 }

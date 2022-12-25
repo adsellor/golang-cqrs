@@ -1,13 +1,15 @@
 package command
 
 type Command struct {
-	Command func()
-	Args    []string
+	CommandId string
+	Command   func()
+	Args      []string
 }
 
-func NewCommand(command func(), args ...string) *Command {
+func NewCommand(commandId string, command func(), args ...string) *Command {
 	return &Command{
-		Command: command,
-		Args:    args,
+		CommandId: commandId,
+		Command:   command,
+		Args:      args,
 	}
 }
