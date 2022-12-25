@@ -6,5 +6,5 @@
 * [x] Naive Commands Implementation
 * [x] Naive Queries Implementation
 * [x] Naive Events Implementation
-* [ ] Auto Configure Implementation
+* [x] Auto Configure Implementation
 * [ ] Add tests

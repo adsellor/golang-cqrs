@@ -25,7 +25,7 @@ func printEvent() {
 func main() {
 	var commandId contextKey = "commandId"
 	ctx := context.WithValue(context.Background(), commandId, "1")
-	ctx2 := context.WithValue(context.Background(), commandId, "0")
+	ctx2 := context.WithValue(context.Background(), commandId, "2")
 	// create new facade
 
 	localCommandId := ctx.Value(commandId).(string)
@@ -42,7 +42,6 @@ func main() {
 		*query.NewQuery("0", printLine),
 	})
 
-	facade.RegisterCommands()
 	facade.CommandBus.Execute(localCommandId2)
 	// create new event bus
 	// eventBus := event.NewEventBus()
