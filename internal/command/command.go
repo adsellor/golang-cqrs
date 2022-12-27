@@ -1,15 +1,14 @@
 package command
 
+import "github.com/google/uuid"
+
 type Command struct {
 	CommandId string
-	Command   func()
-	Args      []string
 }
 
-func NewCommand(commandId string, command func(), args ...string) *Command {
+func NewCommand() *Command {
+	commandId := uuid.New().String()
 	return &Command{
 		CommandId: commandId,
-		Command:   command,
-		Args:      args,
 	}
 }

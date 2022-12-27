@@ -6,14 +6,13 @@ type CommandHandler struct {
 	Args      []string
 }
 
-func (ch *CommandHandler) Execute() {
-	ch.Command()
-}
-
-func NewHandler(commandId string, command func(), args ...string) *CommandHandler {
+func NewHandler(commandId string, command func()) *CommandHandler {
 	return &CommandHandler{
 		CommandID: commandId,
 		Command:   command,
-		Args:      args,
 	}
+}
+
+func (ch *CommandHandler) Execute() {
+	ch.Command()
 }

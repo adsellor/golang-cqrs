@@ -12,20 +12,36 @@ type Facade struct {
 	QueryBus        *query.QueryBus
 }
 
-func NewFacade(commands map[string]command.Command, commandHandlers map[string]command.CommandHandler, queries []query.Query) *Facade {
+func NewFacade(commands []command.Command, commandHandlers []command.CommandHandler, queries []query.Query) *Facade {
 	facade := &Facade{
-		Commands:        commands,
-		CommandHandlers: commandHandlers,
+		Commands:        make(map[string]command.Command),
+		CommandHandlers: make(map[string]command.CommandHandler),
 		CommandBus:      command.NewCommandBus(),
 		QueryBus:        query.NewQueryBus(),
 	}
+	facade.addCommands(commands)
+	facade.addCommandHandlers(commandHandlers)
 	facade.registerCommands()
 	return facade
 }
 
 func (f *Facade) registerCommands() {
-	for commandId := range f.Commands {
-		commandHandler := f.CommandHandlers[commandId]
-		f.CommandBus.AddHandler(commandId, &commandHandler)
+	for _, command := range f.Commands {
+		commandHandler := f.CommandHandlers[command.CommandId]
+		f.CommandBus.RegisterHandler(command.CommandId, &commandHandler)
+	}
+}
+
+func (f *Facade) addCommands(commands []command.Command) {
+	for _, command := range commands {
+		f.Commands[command.CommandId] = command
+	}
+}
+
+func (f *Facade) addCommandHandlers(commandHandlers []command.CommandHandler) {
+	println("adding command handlers")
+	println(commandHandlers)
+	for _, commandHandler := range commandHandlers {
+		f.CommandHandlers[commandHandler.CommandID] = commandHandler
 	}
 }
