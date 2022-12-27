@@ -39,8 +39,6 @@ func (f *Facade) addCommands(commands []command.Command) {
 }
 
 func (f *Facade) addCommandHandlers(commandHandlers []command.CommandHandler) {
-	println("adding command handlers")
-	println(commandHandlers)
 	for _, commandHandler := range commandHandlers {
 		f.CommandHandlers[commandHandler.CommandID] = commandHandler
 	}

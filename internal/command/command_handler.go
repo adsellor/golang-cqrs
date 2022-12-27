@@ -3,7 +3,7 @@ package command
 type CommandHandler struct {
 	CommandID string
 	Command   func()
-	Args      []string
+	Args      []any
 }
 
 func NewHandler(commandId string, command func()) *CommandHandler {

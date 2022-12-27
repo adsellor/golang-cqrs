@@ -1,0 +1,4 @@
+github.com/adsellor/golang-cqrs v0.0.5 h1:HwsHkjm7IXvvy/3h6H7KEl+wpNdD36cScPmgVURI9Ts=
+github.com/adsellor/golang-cqrs v0.0.5/go.mod h1:hzFP8gWYdWUtEI//ju+KlBSEoFPemGCBu6bPaQpxOA0=
+github.com/google/uuid v1.3.0 h1:t6JiXgmwXMjEs8VusXIJk2BXHsn+wx8BZdTaoZ5fu7I=
+github.com/google/uuid v1.3.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=

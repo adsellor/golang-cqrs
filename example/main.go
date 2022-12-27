@@ -6,36 +6,37 @@ import (
 	"github.com/adsellor/golang-cqrs/internal/query"
 )
 
-type contextKey string
+var books []Book
 
-func printLine() {
-	println("hello there from myCommand")
+type Book struct {
+	ID     string
+	Title  string
+	Author string
 }
 
-func printLine2() {
-	println("hello there from myCommand 2")
-}
+// create new facade with command and command hanler that add book to books and returns command, command handler, facade,
+func NewBookFacade() (*cmd.Facade, *command.Command) {
+	books = make([]Book, 0)
+	// create command
+	addBook := func() {
+		books = append(books, Book{
+			ID:     "1",
+			Title:  "The Lord of the Rings",
+			Author: "J.R.R. Tolkien",
+		})
 
-func printEvent() {
-	println("hello event")
+	}
+	// create book command
+	bookCommand := command.NewCommand()
+	commandHandler := command.NewHandler(bookCommand.CommandId, addBook)
+	facade := cmd.NewFacade([]command.Command{*bookCommand}, []command.CommandHandler{*commandHandler}, []query.Query{})
+
+	return facade, bookCommand
 }
 
 func main() {
-
-	// create new facade
-	localCommand := *command.NewCommand()
-
-	// create new command
-	myCommand := *command.NewCommand()
-
-	// create command handler
-	localCommandHandler := *command.NewHandler(localCommand.CommandId, printLine)
-	// my command handler
-	myCommandHandler := *command.NewHandler(myCommand.CommandId, printLine2)
-
-	// create new facade
-	facade := cmd.NewFacade([]command.Command{localCommand, myCommand}, []command.CommandHandler{myCommandHandler, localCommandHandler}, []query.Query{})
-	facade.CommandBus.Execute(&localCommand)
-	facade.CommandBus.Execute(&localCommand)
+	book, addBook := NewBookFacade()
+	book.CommandBus.Execute(addBook)
+	println(books[0].Title)
 
 }
