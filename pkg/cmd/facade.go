@@ -1,8 +1,8 @@
 package cmd
 
 import (
-	"github.com/adsellor/golang-cqrs/internal/command"
-	"github.com/adsellor/golang-cqrs/internal/query"
+	"github.com/adsellor/golang-cqrs/pkg/command"
+	"github.com/adsellor/golang-cqrs/pkg/query"
 )
 
 type Facade struct {
