@@ -29,5 +29,5 @@ func (cb *CommandBus) GetCommandId(command *Command) string {
 }
 
 func (cb *CommandBus) Execute(command *Command) {
-	cb.GetHandler(command.CommandId).Execute()
+	cb.GetHandler(command.CommandId).Execute(command.Args)
 }
